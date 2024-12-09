@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { FaArrowUp } from "react-icons/fa";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,10 +27,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=AG+Title:wght@400;600&display=swap"
+          rel="stylesheet"
+        />
+        {/* Google Fonts se Poppins ko include karna */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <div className="Arrow">
+          <Link href={"/"}>
+            {" "}
+            <FaArrowUp size={24} />{" "}
+          </Link>
+        </div>
       </body>
     </html>
   );
